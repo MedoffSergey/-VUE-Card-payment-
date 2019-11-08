@@ -1,25 +1,58 @@
 <template>
   <div>
-      <Menu/>
+    <Menu @showPersonalArea="showPersonalArea" @showPayments="showPayments" @showHistory="showHistory" />
+      <div v-if="page === 'personalArea'">
+        <PersonalArea />
+      </div>
+      <div v-if="page === 'payments'">
+        <FormToFill />
+      </div>
+      <div v-if="page === 'successfulPayment'">
+        <SuccessfulPayment />
+      </div>
+      <div v-if="page === 'history'">
+        <History />
+      </div>
   </div>
 </template>
 
 <script>
 import Menu from './components/Menu.vue'
+import PersonalArea from './components/PersonalArea.vue'
+import FormToFill from './components/FormToFill.vue'
+import SuccessfulPayment from './components/SuccessfulPayment.vue'
+import History from './components/History.vue'
 
 export default {
-  name: 'App',
+  data() { // Переменные которые можно использовать в шаблоне
+    return {
+      page: '',
+    }
+  },
   components: {
-     Menu
+    Menu,
+    PersonalArea,
+    FormToFill,
+    SuccessfulPayment,
+    History
+  },
+  methods: {
+    showPersonalArea: function() { //условная отрисовка компонентa "Личный кабинет"
+      this.page = "personalArea";
+    },
+    showPayments: function() { //условная отрисовка компонентa "Платежи"
+      this.page = "payments";
+    },
+    showSuccessfulPayment: function() { //условная отрисовка компонентa "Успешной оплаты"
+      this.page = "successfulPayment";
+    },
+    showHistory: function() { //условная отрисовка компонентa "История платежей"
+      this.page = "history";
+    }
   }
 }
 </script>
 
-<style>
-  body{
-      padding: 0;
-      margin: 0;
-      font-family: Helvetica, sans-serif;
-      background-color: #f5f5f5;
-  }
+<style lang="css" type="text/css">
+  @import "./styles/app.css";
 </style>
