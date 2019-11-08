@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="section">
     <Menu @showPersonalArea="showPersonalArea" @showPayments="showPayments" @showHistory="showHistory" />
       <div v-if="page === 'personalArea'">
         <PersonalArea />

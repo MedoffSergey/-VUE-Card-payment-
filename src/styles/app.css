@@ -40,26 +40,40 @@ form {
   outline: none;
 }
 
-@media (min-width: 575.98px){
+@media (min-width: 320px){
   section, header, footer {
-    padding: 0 calc(50vw - 270px);
+    padding: 0 calc(50vw - 160px);
   }
 }
 
-@media (min-width: 767.98px){
+@media (min-width: 480px){
   section, header, footer {
-    padding: 0 calc(50vw - 360px);
+    padding: 0 calc(50vw - 240px);
   }
 }
 
-@media (min-width: 991.98px) {
+@media (min-width: 768px) {
   section, header, footer {
-    padding: 0 calc(50vw - 480px);
+    padding: 0 calc(50vw - 380px);
   }
 }
 
-@media (min-width: 1199.98px){
+@media (min-width: 1000px){
   section, header, footer {
-    padding: 0 calc(50vw - 590px);
+    padding: 0 calc(50vw - 500px);
+  }
+}
+
+@media (max-width: 1000px){
+  form {
+    position: fixed;
+    top: 12%;
+    left: 20%;
+    border: 1px solid #c6c7cc;
+    border-radius: 5px;
+    font: 14px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;
+    overflow: hidden;
+    width: 60%;
+    z-index: -1;
   }
 }
