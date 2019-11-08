@@ -58,7 +58,7 @@
       </div>
     </fieldset>
     <fieldset class="account-action">
-      <input class="btn" type="submit" name="submit" value="Оплатить">
+      <input class="btn" @click="showSuccessfulPaymentNav" value="Оплатить">
     </fieldset>
   </form>
 
@@ -71,11 +71,11 @@ export default {
 
     }
   },
-  methods: {
-    showPersonalAreasNav() {
-      this.$emit("showPersonalArea") // вызывает событие в App.vue
+    methods: {
+      showSuccessfulPaymentNav() {
+        this.$emit("showSuccessfulPayment") // вызывает событие в App.vue
+      }
     }
-  }
 }
 </script>
 

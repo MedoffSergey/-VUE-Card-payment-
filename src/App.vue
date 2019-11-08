@@ -5,10 +5,10 @@
         <PersonalArea />
       </div>
       <div v-if="page === 'payments'">
-        <FormToFill />
+        <FormToFill @showSuccessfulPayment="showSuccessfulPayment"  />
       </div>
       <div v-if="page === 'successfulPayment'">
-        <SuccessfulPayment />
+        <SuccessfulPayment @showPersonalArea="showPersonalArea"/>
       </div>
       <div v-if="page === 'history'">
         <History />

@@ -29,7 +29,7 @@ form {
 }
 
 .account-action .btn {
-  width: 100px;
+  text-align: center;
   background: linear-gradient(#007bdc, #006bbd);
   border-radius: 20px;
   color: #fff;

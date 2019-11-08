@@ -13,7 +13,7 @@
       <div class="message-info ">Дата оплаты:</div>
     </fieldset>
     <fieldset class="account-action">
-      <input class="btn" type="submit" name="submit" value="Готово">
+      <input class="btn" @click="showPersonalAreaNav" value="Готово">
     </fieldset>
   </form>
 </div>
@@ -25,7 +25,12 @@ export default {
     return {
 
     }
-  }
+  },
+    methods: {
+      showPersonalAreaNav() {
+        this.$emit("showPersonalArea") // вызывает событие в App.vue
+      }
+    }
 }
 </script>
 
