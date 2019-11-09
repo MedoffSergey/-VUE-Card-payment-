@@ -46,7 +46,6 @@ export default {
 header {
   width: 100%;
   height: 1%;
-
   top: 0;
   left: 0;
   z-index: 80;
@@ -57,8 +56,15 @@ header {
   box-sizing: border-box;
 }
 
+@media (max-width: 1000px){
+  header {
+    margin-bottom: 40px;
+  }
+}
+
+
 .nav-link {
-  background-image: linear-gradient(to right, #272626 0%, black 150%);
+  background-color: #1F2229;
   width: 100%;
   text-align: left;
   margin-bottom: 2px;
@@ -91,7 +97,6 @@ aside h2 {
 @media (max-width: 1000px){
   aside {
     display: contents;
-
   }
 }
 
@@ -107,11 +112,12 @@ button {
 
 button:active {
   box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: #2A2C38;
 }
 
 button:hover {
   box-shadow: 0px 0px 20px rgba(52, 48, 70, 0.5);
+  background-color: #2A2C38;
   color: white;
 }
 
