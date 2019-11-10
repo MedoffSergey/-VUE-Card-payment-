@@ -1,86 +1,92 @@
 <template>
-  <div>
-    <form>
-      <fieldset class="account-info">
-        <div class="message-info title">Информация об оплате:</div>
-        <div class="message-info">Номер счета:
-          <input type="text" name="Number score">
-        </div>
-        <div class="message-info">Сумма платежа:
-          <input type="text" name="Price">
-        </div>
-        <h1> Данные банковской карты</h1>
-        <div class="card-position">
-          <div class="card">
-            <div class='card-content'>
-              <div class="message-info"> Номер карты </div>
-              <input type="text" name="Number card">
-              <input type="text" name="Number card">
-              <input type="text" name="Number card">
-              <input type="text" name="Number card">
-              <div class="message-info"> Срок действия </div>
-              <select class="date">
-                <option>01</option>
-                <option>02</option>
-                <option>03</option>
-                <option>04</option>
-                <option>05</option>
-                <option>06</option>
-                <option>07</option>
-                <option>08</option>
-                <option>09</option>
-                <option>10</option>
-                <option>11</option>
-                <option>12</option>
-              </select>
+<div>
+  <form>
+    <fieldset class="account-info">
+      <div class="message-info title">Информация об оплате:</div>
+      <div class="message-info">Номер счета:
+        <input type="text" name="Number score" v-model="numberScore">{{numberScore}}
+      </div>
+      <div class="message-info">Сумма платежа:
+        <input type="text" name="Price" v-model="price">{{price}}
+      </div>
+      <h1> Данные банковской карты</h1>
+      <div class="card-position">
+        <div class="card">
+          <div class='card-content'>
+            <div class="message-info"> Номер карты </div>
+            <input type="text" name="Number card" v-model="numberCard">
+            <input type="text" name="Number card" v-model="numberCard">
+            <input type="text" name="Number card" v-model="numberCard">
+            <input type="text" name="Number card" v-model="numberCard">
+            <div class="message-info"> Срок действия </div>
+            <select class="date">
+              <option>01</option>
+              <option>02</option>
+              <option>03</option>
+              <option>04</option>
+              <option>05</option>
+              <option>06</option>
+              <option>07</option>
+              <option>08</option>
+              <option>09</option>
+              <option>10</option>
+              <option>11</option>
+              <option>12</option>
+            </select>
 
-              <select class="date">
-                <option>2017</option>
-                <option>2018</option>
-                <option>2019</option>
-                <option>2020</option>
-                <option>2021</option>
-                <option>2022</option>
-                <option>2023</option>
-              </select>
-              <div>
-                <input class='author' type="text" name="author" placeholder="Держатель карты">
-              </div>
-            </div>  <!-- card-content -->
-          </div>  <!-- front-card -->
-          <div class='card-back'>
-            <div class="grey-line"></div>
-            <div class="display-flex">
-              <div class="message-info ">Код CVV2/ CVC2 </div>
-              <input type="text" name="CVV">
+            <select class="date">
+              <option>2017</option>
+              <option>2018</option>
+              <option>2019</option>
+              <option>2020</option>
+              <option>2021</option>
+              <option>2022</option>
+              <option>2023</option>
+            </select>
+
+            <div>
+              <input class='author' type="text" name="author" placeholder="Держатель карты" v-model="cardOwner">
             </div>
-          </div>  <!-- front-back -->
-        </div>
-      </fieldset>
-      <fieldset class="account-action">
-        <input class="btn" @click="showSuccessfulPaymentNav" value="Оплатить">
-      </fieldset>
-    </form>
-  </div>
+          </div> <!-- card-content -->
+        </div> <!-- front-card -->
+        <div class='card-back'>
+          <div class="grey-line"></div>
+          <div class="display-flex">
+            <div class="message-info ">Код CVV2/ CVC2 </div>
+            <input type="text" name="CVV" v-model="secretKey">
+          </div>
+        </div> <!-- front-back -->
+      </div>
+    </fieldset>
+    <fieldset class="account-action">
+      <input class="btn" @click="showSuccessfulPaymentNav" value="Оплатить">
+    </fieldset>
+  </form>
+</div>
 </template>
 
 <script>
 export default {
   data() {
     return {
-
+      numberScore: null,
+      price: null,
+      numberCard: null,
+      monthDate: null,
+      yearDate: null,
+      cardOwner: null,
+      secretKey: null
     }
   },
-    methods: {
-      showSuccessfulPaymentNav() {
-        this.$emit("showSuccessfulPayment") // вызывает событие в App.vue
-      }
+  methods: {
+    showSuccessfulPaymentNav() {
+      this.$emit("showSuccessfulPayment") // вызывает событие в App.vue
     }
+  }
 }
 </script>
 
 <style>
-
 fieldset {
   border: 0;
   margin: 0;
@@ -98,9 +104,11 @@ input {
   margin-top: 6px;
   width: 15%;
 }
+
 .author {
   width: 97%;
 }
+
 .card-position {
   position: relative;
 }
