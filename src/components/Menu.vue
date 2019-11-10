@@ -7,9 +7,9 @@
 
       <aside v-show="show" transition="slide">
         <div class="left_menu">
-          <button @click="showPersonalAreasNav" class='nav-link'> Личный кабинет </button>
-          <button @click="showPaymentsNav" class='nav-link'> Платежи (активная) </button>
-          <button @click="showHistoryNav" class='nav-link'> История платежей </button>
+          <button v-bind:class="{'nav-link': true, active: (page==='personalArea')}"  @click="showPersonalAreasNav" class='nav-link'> Личный кабинет </button>
+          <button v-bind:class="{'nav-link': true, active: (page==='payments')}"@click="showPaymentsNav" class='nav-link'> Платежи (активная) </button>
+          <button v-bind:class="{'nav-link': true, active: (page==='history')}"@click="showHistoryNav" class='nav-link'> История платежей </button>
           <button class='nav-link'> Настройки </button>
           <button class='nav-link'> Выйти </button>
         </div>
@@ -21,6 +21,7 @@
 
 <script>
 export default {
+  props: ["page"],
   name: "Burger-Menu",
   data() {
     return {
@@ -56,11 +57,6 @@ header {
   box-sizing: border-box;
 }
 
-@media (max-width: 1000px){
-  header {
-    margin-bottom: 40px;
-  }
-}
 
 
 .nav-link {
@@ -78,13 +74,13 @@ header {
 aside {
   background-color: #09090b;
   width: 20%;
-  position: fixed;
+  position: absolute;
   top: 55px;
   left: 0;
   bottom: 0px;
   z-index: 1;
-  display: flex;
-  justify-content: center;
+  height: 100%;
+
   /* align-items: center; */
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
@@ -94,11 +90,7 @@ aside h2 {
   color: #afafaf;
 }
 
-@media (max-width: 1000px){
-  aside {
-    display: contents;
-  }
-}
+
 
 button {
   background: transparent;

@@ -1,6 +1,6 @@
 <template>
   <div class="section">
-    <Menu @showPersonalArea="showPersonalArea" @showPayments="showPayments" @showHistory="showHistory" />
+    <Menu :page = "page" @showPersonalArea="showPersonalArea" @showPayments="showPayments" @showHistory="showHistory" />
       <div v-if="page === 'personalArea'">
         <PersonalArea />
       </div>
@@ -26,7 +26,7 @@ import History from './components/History.vue'
 export default {
   data() { // Переменные которые можно использовать в шаблоне
     return {
-      page: '',
+      page: 'personalArea',
     }
   },
   components: {
@@ -54,5 +54,6 @@ export default {
 </script>
 
 <style lang="css" type="text/css">
-  @import "./styles/app.css";
+  @import "./styles/style.css";
+  @import "./styles/media.css";
 </style>

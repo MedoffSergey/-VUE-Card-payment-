@@ -29,6 +29,7 @@ form {
 }
 
 .account-action .btn {
+  width: 20%;
   text-align: center;
   background: linear-gradient(#007bdc, #006bbd);
   border-radius: 20px;
@@ -38,41 +39,4 @@ form {
   float: left;
   padding: 8px 16px;
   outline: none;
-}
-
-@media (min-width: 320px){
-  section, header, footer {
-    padding: 0 calc(50vw - 160px);
-  }
-}
-
-@media (min-width: 480px){
-  section, header, footer {
-    padding: 0 calc(50vw - 240px);
-  }
-}
-
-@media (min-width: 768px) {
-  section, header, footer {
-    padding: 0 calc(50vw - 380px);
-  }
-}
-
-@media (min-width: 1000px){
-  section, header, footer {
-    padding: 0 calc(50vw - 500px);
-  }
-}
-
-@media (max-width: 1000px){
-  form {
-    position: relative;
-    left: 10%;
-    border: 1px solid #c6c7cc;
-    border-radius: 5px;
-    font: 14px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;
-    overflow: hidden;
-    width: 80%;
-    z-index: -1;
-  }
 }
