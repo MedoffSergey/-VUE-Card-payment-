@@ -2,7 +2,7 @@
   <div class="section">
     <Menu :page = "page" @showPersonalArea="showPersonalArea" @showPayments="showPayments" @showHistory="showHistory" />
       <div v-if="page === 'personalArea'">
-        <PersonalArea />
+        <PersonalArea @showPayments="showPayments" @showHistory="showHistory"/>
       </div>
       <div v-if="page === 'payments'">
         <FormToFill @showSuccessfulPayment="showSuccessfulPayment"  />

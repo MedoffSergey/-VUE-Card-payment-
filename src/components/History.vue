@@ -1,9 +1,19 @@
 <template>
-  <h1 class ="history">Тут выводит историю всех транзакций, которые включают в себя цену, номер счета и дату перевода.  </h1>
+
+  <table>
+      <tr><th>Пользователь</th><th>Цена</th><th>Номер счета</th><th>Дата перевода</th></tr>
+      <tr><td>Stephen C. Cox</td><td>$327</td><td>327272829101</td><td>10.11.2019</td></tr>
+      <tr><td>Josephin Tan</td><td>$519</td><td>519184947484</td><td>4.11.2019</td></tr>
+      <tr><td>Joyce Ming</td><td>$35</td><td>515435345346 </td><td>7.11.2019</td></tr>
+      <tr><td>James A. Pentel</td><td>$25</td><td>34547564523</td><td>3.11.2019</td></tr>
+  </table>
+
 </template>
 
 <script>
+import moment from "moment"
 export default {
+  name: 'history',
   data() {
     return {
 
@@ -13,10 +23,15 @@ export default {
 </script>
 
 <style>
-.history{
-  font-size: 34px;
-  text-align: center;
-  margin: 0 auto;
-  width: 50%
+table {
+width: 60%;
+font-size: 20px;
+margin: 2% auto;
+border: 1px solid #00458a;
+border-collapse: separate;
+empty-cells: hide;
+}
+th, td {
+  border: 2px solid #00458a;
 }
 </style>

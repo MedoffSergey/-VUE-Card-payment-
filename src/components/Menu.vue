@@ -67,6 +67,10 @@ header {
   padding: 10px 0px 10px 20px;
 }
 
+.nav-link:active {
+  color: white;
+}
+
 .menu-btn {
   float: right;
 }
@@ -102,10 +106,10 @@ button {
   transition: all .3s ease-in-out;
 }
 
-button:active {
+/* button:active {
   box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
   background-color: #2A2C38;
-}
+} */
 
 button:hover {
   box-shadow: 0px 0px 20px rgba(52, 48, 70, 0.5);

@@ -3,10 +3,10 @@
     <h1 class="PersonalArea">Личный кабинет</h1>
     <div class="PersonalButtonPosition">
       <ul id="buttons" class="flex-row">
-        <li class='btn-personalArea'><a href="#"> <img src="../assets/PersonalArea/recipient.svg" width="50px" height="50px"> Текущие заказы</a></li>
+        <li class='btn-personalArea' @click="showPaymentsNav"><a href="#"> <img src="../assets/PersonalArea/recipient.svg" width="50px" height="50px"> Текущие заказы</a></li>
         <li class='btn-personalArea'><a href="#"> <img src="../assets/PersonalArea/registration-form.svg" width="50px" height="50px"> Личные данные </a></li>
         <li class='btn-personalArea'><a href="#"> <img src="../assets/PersonalArea/accounting.svg" width="50px" height="50px"> Личный счет</a></li>
-        <li class='btn-personalArea'><a href="#"> <img src="../assets/PersonalArea/history.svg" width="50px" height="50px"> История заказов</a></li>
+        <li class='btn-personalArea' @click="showHistoryNav"><a href="#"> <img src="../assets/PersonalArea/history.svg" width="50px" height="50px"> История заказов</a></li>
 
         <li class='btn-personalArea'><a href="#"> <img src="../assets/PersonalArea/shopping-basket.svg" width="50px" height="50px"> Корзина</a></li>
         <li class='btn-personalArea'><a href="#"> <img src="../assets/PersonalArea/phone.svg" width="50px" height="50px"> Контакты</a></li>
@@ -20,7 +20,14 @@
 export default {
   data() {
     return {
-
+    }
+  },
+  methods: {
+    showPaymentsNav() {
+      this.$emit("showPayments") // вызывает событие в App.vue
+    },
+    showHistoryNav() {
+      this.$emit("showHistory") // вызывает событие в App.vue
     }
   }
 }
