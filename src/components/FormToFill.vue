@@ -4,21 +4,22 @@
     <fieldset class="account-info">
       <div class="message-info title">Информация об оплате:</div>
       <div class="message-info">Номер счета:
-        <input type="text" name="Number score" v-model="numberScore">{{numberScore}}
+        <input type="text" name="Number score" v-model="numberScore">
       </div>
       <div class="message-info">Сумма платежа:
-        <input type="text" name="Price" v-model="price">{{price}}
+        <input type="text" name="Price" v-model="price">
       </div>
       <h1> Данные банковской карты</h1>
       <div class="card-position">
         <div class="card">
           <div class='card-content'>
             <div class="message-info"> Номер карты </div>
-            <input type="text" name="Number card" v-model="numberCard">
-            <input type="text" name="Number card" v-model="numberCard">
-            <input type="text" name="Number card" v-model="numberCard">
-            <input type="text" name="Number card" v-model="numberCard">
+            <input type="text" name="Number card" maxlength="4" v-model="numberCard1">
+            <input type="text" name="Number card" maxlength="4" v-model="numberCard2">
+            <input type="text" name="Number card" maxlength="4" v-model="numberCard3">
+            <input type="text" name="Number card" maxlength="4" v-model="numberCard4">
             <div class="message-info"> Срок действия </div>
+
             <select class="date">
               <option>01</option>
               <option>02</option>
@@ -33,7 +34,6 @@
               <option>11</option>
               <option>12</option>
             </select>
-
             <select class="date">
               <option>2017</option>
               <option>2018</option>
@@ -53,13 +53,13 @@
           <div class="grey-line"></div>
           <div class="display-flex">
             <div class="message-info ">Код CVV2/ CVC2 </div>
-            <input type="text" name="CVV" v-model="secretKey">
+            <input type="text" name="CVV" maxlength="3" v-model="secretKey">
           </div>
         </div> <!-- front-back -->
-      </div>
+      </div> <!-- card-position -->
     </fieldset>
     <fieldset class="account-action">
-      <input class="btn" @click="showSuccessfulPaymentNav" value="Оплатить">
+      <a class="btn" @click="showSuccessfulPaymentNav">Оплатить</a>
     </fieldset>
   </form>
 </div>
@@ -71,16 +71,38 @@ export default {
     return {
       numberScore: null,
       price: null,
-      numberCard: null,
-      monthDate: null,
-      yearDate: null,
-      cardOwner: null,
-      secretKey: null
+      numberCard1: null,
+      numberCard2: null,
+      numberCard3: null,
+      numberCard4: null,
+      monthDate: "",
+      yearDate: "",
+      cardOwner: "",
+      secretKey: "",
+      showDismissibleAlert: true
     }
   },
   methods: {
     showSuccessfulPaymentNav() {
-      this.$emit("showSuccessfulPayment") // вызывает событие в App.vue
+      console.log("this.cardOwner", this.cardOwner)
+      if (this.ownerCheck() != false) {
+        this.$emit("showSuccessfulPayment") // вызывает событие в App.vue
+        console.log("!false")
+      }
+
+      // this.ownerCheck()
+      console.log(typeof(this.cardOwner))
+    },
+
+    //Валидация input полей
+
+    ownerCheck() { //Проверка держателя карты
+      if (this.cardOwner.length <= 4) {
+        console.log("Поле держатель карты <4 символов")
+        return false;
+      } else {
+        return this.cardOwner.toUpperCase();
+      }
     }
   }
 }
@@ -110,17 +132,18 @@ input {
 }
 
 .card-position {
-  position: relative;
+  /* position: relative; */
 }
 
 .card {
+  position: relative;
   background-color: white;
   border: 1px solid #c6c7cc;
   width: 400px;
   height: 200px;
   border-radius: 10px;
   margin-bottom: 40px;
-  z-index: 100;
+  z-index: 1;
 }
 
 .card-content {
@@ -129,15 +152,15 @@ input {
 
 .card-back {
   position: absolute;
-  top: 20px;
-  right: 22%;
+  top: 230px;
+  left: 180px;
   background-color: white;
   border: 1px solid #c6c7cc;
   width: 400px;
   height: 200px;
   border-radius: 10px;
   margin-bottom: 40px;
-  z-index: -1;
+  z-index: 0;
 }
 
 .date {

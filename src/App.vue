@@ -27,6 +27,13 @@ export default {
   data() { // Переменные которые можно использовать в шаблоне
     return {
       page: 'personalArea',
+      numberScore: null,
+      price: null,
+      numberCard: null,
+      monthDate: null,
+      yearDate: null,
+      cardOwner: null,
+      secretKey: null,
     }
   },
   components: {
