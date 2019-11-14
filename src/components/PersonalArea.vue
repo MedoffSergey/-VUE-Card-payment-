@@ -1,5 +1,5 @@
 <template>
-  <div class='section'>
+  <div>
     <h1 class="PersonalArea">Личный кабинет</h1>
     <div class="PersonalButtonPosition">
       <ul id="buttons" class="flex-row">

@@ -1,12 +1,14 @@
 <template>
-
-  <table>
+  <div class="">
+    <table>
       <tr><th>Цена</th><th>Номер счета</th><th>Дата перевода</th></tr>
       <tr><td>$327</td><td>327272829101</td><td>10.11.2019</td></tr>
       <tr><td>$519</td><td>519184947484</td><td>4.11.2019</td></tr>
       <tr><td>$35</td><td>515435345346 </td><td>7.11.2019</td></tr>
       <tr><td>$25</td><td>34547564523</td><td>3.11.2019</td></tr>
-  </table>
+    </table>
+
+  </div>
 
 </template>
 

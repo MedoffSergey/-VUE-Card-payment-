@@ -49,7 +49,7 @@
             </div>
           </div> <!-- card-content -->
         </div> <!-- front-card -->
-        <div class='card-back'>
+        <div class='prev'>
           <div class="grey-line"></div>
           <div class="display-flex">
             <div class="message-info ">Код CVV2/ CVC2 </div>
@@ -65,7 +65,7 @@
 </div>
 </template>
 
-<script>
+<script scoped>
 export default {
   data() {
     return {
@@ -131,10 +131,6 @@ input {
   width: 97%;
 }
 
-.card-position {
-  /* position: relative; */
-}
-
 .card {
   position: relative;
   background-color: white;
@@ -149,10 +145,12 @@ input {
 .card-content {
   padding: 5%
 }
-
-.card-back {
+.card-position {
+  position: relative;
+}
+.prev {
   position: absolute;
-  top: 230px;
+  top: 20px;
   left: 180px;
   background-color: white;
   border: 1px solid #c6c7cc;
@@ -195,6 +193,14 @@ input {
   display: block;
   font-weight: bold;
   margin-bottom: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .prev {
+    position: inherit;
+    top: 0px;
+    left: 0;
+  }
 }
 
 .account-action {
